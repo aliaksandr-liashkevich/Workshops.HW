@@ -19,11 +19,11 @@ namespace Rocket.DAL.Migrations.InitialDataCreators.User
         {
             var roles = new List<DbUser>()
             {
-                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter456", PasswordHash = "13434"},
-                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter4563", PasswordHash = "234534"},
-                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter3456", PasswordHash = "23452"},
-                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter345643", PasswordHash = "2345"},
-                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter", PasswordHash = "235"}
+                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter456", PasswordHash = "13434" },
+                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter4563", PasswordHash = "234534" },
+                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter3456", PasswordHash = "23452" },
+                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter345643", PasswordHash = "2345" },
+                new DbUser() { FirstName = "Peter", LastName = "Ivanych", UserName = "Peter", PasswordHash = "235" }
         };
         }
 

@@ -131,7 +131,7 @@ namespace Rocket.Web.Controllers.UserPayments
 
             public string RequestBody { get; set; }
 
-            public string Verification { get; set; } = String.Empty;
+            public string Verification { get; set; } = string.Empty;
         }
     }
 }

@@ -35,8 +35,8 @@ namespace Rocket.BL.Services.UserServices
         /// <param name="unitOfWork">Экземпляр unit of work</param>
         /// <param name="userManager"></param>
         /// <param name="roleManager"></param>
-        public PermissionService(IUnitOfWork unitOfWork,RocketUserManager userManager,
-            RockeRoleManager roleManager, ILog logger): base(unitOfWork)
+        public PermissionService(IUnitOfWork unitOfWork, RocketUserManager userManager,
+            RockeRoleManager roleManager, ILog logger) : base(unitOfWork)
         {
             _userManager = userManager;
             _roleManager = roleManager;

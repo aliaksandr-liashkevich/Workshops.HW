@@ -10,7 +10,7 @@ export class PaymentService {
     constructor(private http: HttpClient) { }
 
     getPAymentEnabled(): Observable<boolean> {
-        return this.http.get<boolean>(`http://rocket-api.belpyro.net/userpayments/paymentInfo`);
+        return this.http.get<boolean>(`http://localhost:63613/userpayments/paymentInfo`);
     }
 
 }
