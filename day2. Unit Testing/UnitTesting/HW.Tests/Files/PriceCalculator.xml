@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PriceCalculator>
+  <CalculatePrice price="10" age="10" expected="100"></CalculatePrice>
+  <CalculatePrice price="10" age="20" expected="100"></CalculatePrice>
+</PriceCalculator>
