@@ -1,17 +1,17 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 
 namespace Rocket.BL.Common.Services.PersonalArea
 {
     /// <summary>
     /// Интерфейс для работы с жанрами.
     /// </summary>
-    public interface IChangeGenreManagerService
+    public interface IGenreManagerService<T>
     {
         /// <summary>
         /// Получение всех жанров из базы.
         /// </summary>
         /// <returns>Коллекцию жанров.</returns>
-        IEnumerable GetAllGenres();
+        IEnumerable<T> GetAllGenres();
 
         /// <summary>
         /// Добавление жанра в персональный список ожидания релизов.

@@ -16,6 +16,7 @@ using Rocket.BL.Services.User;
 using Rocket.BL.Services.UserPaymentService;
 using Rocket.BL.Validators.User;
 using System.Collections.Generic;
+using Rocket.BL.Common.Models.PersonalArea;
 
 namespace Rocket.BL
 {
@@ -28,15 +29,15 @@ namespace Rocket.BL
             Bind<IEpisodeService>().To<EpisodeService>();
             Bind<IPersonalData>().To<PersonalDataService>();
             Bind<IValidator<Common.Models.User.User>>().To<UserValidatorCheckRequiredFields>();
-            Bind<IEmailManager>().To<ChangeEmailManagerService>();
+            Bind<IEmailManager>().To<EmailManagerService>();
             Bind<IUserPaymentService>().To<UserPaymentService>();
 
             Bind<IUserAccountLevelService>().To<UserAccountLevelService>();
             Bind<IUserAccountStatusService>().To<UserAccountStatusService>();
             Bind<IUserManagementService>().To<UserManagementService>();
 
-            Bind<IChangeMusicGenreManagerService>().To<ChangeMusicGenreManagerService>();
-            Bind<IChangeTvGenreManagerService>().To<ChangeTvGenreManagerService>();
+            Bind<IGenreManagerService<MusicGenre>>().To<MusicGenreManagerService>();
+            Bind<IGenreManagerService<Genre>>().To<TvGenreManagerService>();
             Bind<IGenreService>().To<GenreService>();
             Bind<IMailNotificationService>().To<MailNotificationService>()
                 .WithConstructorArgument(

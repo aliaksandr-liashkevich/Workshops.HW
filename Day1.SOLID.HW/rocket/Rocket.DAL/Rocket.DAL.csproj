@@ -222,6 +222,7 @@
     <Compile Include="Repositories\UserRole\DbRoleRepository.cs" />
     <Compile Include="Repositories\UserRole\DbUserRoleRepository.cs" />
     <Compile Include="Repositories\User\DbUserRepository.cs" />
+    <Compile Include="UoW\Storage.cs" />
     <Compile Include="UoW\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

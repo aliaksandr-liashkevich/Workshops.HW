@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using FluentValidation;
 using Rocket.BL.Common.Models.PersonalArea;
 using Rocket.BL.Common.Services.PersonalArea;
@@ -9,23 +9,23 @@ using Rocket.DAL.Common.UoW;
 
 namespace Rocket.BL.Services.PersonalArea
 {
-    public class ChangeMusicGenreManagerService : BaseService, IChangeMusicGenreManagerService
+    public class TvGenreManagerService : BaseService, IGenreManagerService<Genre>
     {
-        public ChangeMusicGenreManagerService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public TvGenreManagerService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
 
         /// <summary>
-        /// Получение всех музыкальных жанров из базы.
+        /// Получение всех TV жанров из базы.
         /// </summary>
         /// <returns>Коллекцию жанров.</returns>
-        public IEnumerable GetAllGenres()
+        public IEnumerable<Genre> GetAllGenres()
         {
-            return AutoMapper.Mapper.Map<IEnumerable<MusicGenre>>(_unitOfWork.MusicGenreRepository.Get());
+            return Mapper.Map<IEnumerable<Genre>>(_unitOfWork.GenreRepository.Get());
         }
 
         /// <summary>
-        /// Добавляет музыкальный жанр пользователю.
+        /// Добавляет ТV жанр пользователю
         /// </summary>
         /// <param name="id">Id пользователя</param>
         /// <param name="genre">Имя жанра для добавления</param>
@@ -33,17 +33,17 @@ namespace Rocket.BL.Services.PersonalArea
         {
             var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUser_Id == id).FirstOrDefault()
                             ?? throw new ValidationException(Resources.EmptyModel);
-            if (_unitOfWork.MusicGenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() == null)
+            if (_unitOfWork.GenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() == null)
             {
                 throw new ValidationException(Resources.GenreWrongName);
             }
 
-            if (modelUser.MusicGenres.Where(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() != null)
+            if (modelUser.Genres.Where(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() != null)
             {
                 throw new ValidationException(Resources.GenreDuplicate);
             }
 
-            modelUser.MusicGenres.Add(_unitOfWork.MusicGenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault());
+            modelUser.Genres.Add(_unitOfWork.GenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault());
             _unitOfWork.UserAuthorisedRepository.Update(modelUser);
             _unitOfWork.SaveChanges();
         }
@@ -57,9 +57,9 @@ namespace Rocket.BL.Services.PersonalArea
         {
             var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUser_Id == id).FirstOrDefault()
                             ?? throw new ValidationException(Resources.EmptyModel);
-            if (modelUser.MusicGenres.Where(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() != null)
+            if (modelUser.Genres.Where(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() != null)
             {
-                modelUser.MusicGenres.Remove(_unitOfWork.MusicGenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault());
+                modelUser.Genres.Remove(_unitOfWork.GenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault());
             }
             else
             {

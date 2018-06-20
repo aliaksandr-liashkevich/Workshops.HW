@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Web.Http;
 using FluentValidation;
+using Rocket.BL.Common.Models.PersonalArea;
 using Rocket.BL.Common.Services.PersonalArea;
 using Rocket.Web.Extensions;
 using Rocket.Web.Properties;
@@ -11,9 +12,9 @@ namespace Rocket.Web.Controllers.PersonalArea
     [RoutePrefix("")]
     public class TvGenresController : ApiController
     {
-        private IChangeTvGenreManagerService _tvGenreManagerService;
+        private IGenreManagerService<Genre> _tvGenreManagerService;
 
-        public TvGenresController(IChangeTvGenreManagerService tvGenreManagerService)
+        public TvGenresController(IGenreManagerService<Genre> tvGenreManagerService)
         {
             _tvGenreManagerService = tvGenreManagerService;
         }
