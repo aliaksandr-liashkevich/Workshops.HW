@@ -128,6 +128,7 @@
     <Compile Include="Repositories\User\IDbLanguageRepository.cs" />
     <Compile Include="Repositories\User\IDbUserDetailRepository.cs" />
     <Compile Include="Repositories\User\IDbUserRepository.cs" />
+    <Compile Include="UoW\IStorage.cs" />
     <Compile Include="UoW\IUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

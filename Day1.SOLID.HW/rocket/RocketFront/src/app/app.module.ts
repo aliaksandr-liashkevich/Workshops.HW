@@ -83,7 +83,7 @@ export function createConfig(): SignalRConfiguration {
     AppRoutingModule,
     OAuthModule.forRoot({
       resourceServer: {
-        allowedUrls: ['http://rocket-api.belpyro.net'],
+        allowedUrls: ['http://localhost:63613'],
         sendAccessToken: true
       }
     }),

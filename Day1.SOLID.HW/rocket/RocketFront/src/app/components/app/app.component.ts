@@ -21,7 +21,7 @@ export class AppComponent {
 }
 
 export const authConfig: AuthConfig = {
-  issuer: 'http://rocket-api.belpyro.net',
+  issuer: 'http://localhost:63613',
   showDebugInformation: true, // remove after debug
   clientId: 'client',
   dummyClientSecret: 'secret-rocket',

@@ -9,12 +9,12 @@ using System.Text.RegularExpressions;
 
 namespace Rocket.BL.Services.PersonalArea
 {
-    public class ChangeEmailManagerService : BaseService, IEmailManager
+    public class EmailManagerService : BaseService, IEmailManager
     {
         private string _pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                 @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
 
-        public ChangeEmailManagerService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public EmailManagerService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
 

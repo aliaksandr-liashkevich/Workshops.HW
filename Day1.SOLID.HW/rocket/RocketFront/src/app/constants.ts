@@ -1,4 +1,4 @@
-const apiUrl = 'http://rocket-api.belpyro.net';
+const apiUrl = 'http://localhost:63613';
 const api = "api";
 
 const urls = {

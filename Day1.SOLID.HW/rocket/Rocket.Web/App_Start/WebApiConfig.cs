@@ -6,6 +6,9 @@ namespace Rocket.Web
     {
         public static void Register(HttpConfiguration config)
         {
+            // CORS
+            config.EnableCors();
+
             // Web API configuration and services
 
             // Web API routes

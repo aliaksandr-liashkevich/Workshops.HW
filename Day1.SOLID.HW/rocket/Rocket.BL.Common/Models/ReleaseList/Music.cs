@@ -27,7 +27,8 @@ namespace Rocket.BL.Common.Models.ReleaseList
         /// Url постера на сайте ресурса
         /// </summary>
         public string PosterImageUrl { get; set; }
-
+        
+        // todo: Rmeove artist
         /// <summary>
         /// Исполнитель
         /// </summary>

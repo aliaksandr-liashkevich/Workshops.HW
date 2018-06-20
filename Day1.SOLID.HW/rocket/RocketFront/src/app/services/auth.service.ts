@@ -13,8 +13,8 @@ export class RocketAuthService {
   login(username: string, password: string) {
     if (this.IsAuthenticated) {
       this.openId.logOut();
-      this.authSubj.next(false);      
-    }    
+      this.authSubj.next(false);
+    }
 
     this.openId.fetchTokenUsingPasswordFlow(username, password)
       .then(result => {
@@ -23,12 +23,11 @@ export class RocketAuthService {
         this.router.navigateByUrl('/');
       })
       .catch(ex => console.log(ex));
-      
   }
 
-  logoff() {  
-      this.openId.logOut(); 
-      this.router.navigateByUrl('/login');   
+  logoff() {
+      this.openId.logOut();
+      this.router.navigateByUrl('/login');
   }
 
   get IsAuthenticated(): boolean {
